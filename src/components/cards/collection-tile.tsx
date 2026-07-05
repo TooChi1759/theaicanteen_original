@@ -8,11 +8,13 @@ export function CollectionTile({
   href,
   aspect = 'portrait',
   priority,
+  poster,
 }: {
   collection: GalleryCollection;
   href: string;
   aspect?: HoverMediaProps['aspect'];
   priority?: boolean;
+  poster?: string;
 }) {
   return (
     <Link
@@ -23,6 +25,7 @@ export function CollectionTile({
         seed={`collection-${collection.id}`}
         title={collection.name}
         kind="image"
+        poster={poster}
         aspect={aspect}
         rounded="rounded-3xl"
         priority={priority}

@@ -59,6 +59,7 @@ export default function GalleryPage() {
                 <CollectionTile
                   collection={c}
                   href={c.promptSlug ? `/prompt-library/${c.promptSlug}` : '/prompt-library'}
+                  poster={c.promptSlug ? `/prompts/${c.promptSlug}.webp` : undefined}
                   aspect="portrait"
                 />
               </RevealItem>

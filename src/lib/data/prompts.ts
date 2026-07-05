@@ -13,7 +13,7 @@ export type Prompt = {
   outputImage?: string;
 };
 
-export const prompts: Prompt[] = [
+const rawPrompts: Prompt[] = [
   {
     slug: 'cinematic-golden-hour-portrait',
     title: 'Cinematic Golden Hour Portrait',
@@ -119,6 +119,15 @@ export const prompts: Prompt[] = [
     aspect: 'portrait',
   },
 ];
+
+/**
+ * Each prompt gets its generated output image by convention (`/prompts/<slug>.webp`).
+ * Set an explicit `outputImage` on a prompt to override.
+ */
+export const prompts: Prompt[] = rawPrompts.map((p) => ({
+  ...p,
+  outputImage: p.outputImage ?? `/prompts/${p.slug}.webp`,
+}));
 
 export const promptCategories = [
   'All',

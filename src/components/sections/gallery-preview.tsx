@@ -21,6 +21,7 @@ export function GalleryPreview({ limit = 6 }: { limit?: number }) {
               <CollectionTile
                 collection={c}
                 href={c.promptSlug ? `/prompt-library/${c.promptSlug}` : '/gallery'}
+                poster={c.promptSlug ? `/prompts/${c.promptSlug}.webp` : undefined}
                 priority={i < 3}
               />
             </RevealItem>
