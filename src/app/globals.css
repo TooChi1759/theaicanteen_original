@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-charcoal-hair/60;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-charcoal text-ivory font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image:
+      radial-gradient(80% 55% at 50% -8%, rgba(196, 106, 45, 0.1) 0%, rgba(27, 27, 27, 0) 60%),
+      radial-gradient(60% 45% at 100% 0%, rgba(212, 175, 55, 0.06) 0%, rgba(27, 27, 27, 0) 55%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-amber/[0.85] text-ivory;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-serif;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Elegant focus ring for keyboard users only */
+  :focus-visible {
+    outline: 2px solid theme('colors.gold.DEFAULT');
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme('colors.charcoal.deep');
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.charcoal.raised');
+    border: 3px solid theme('colors.charcoal.deep');
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.stone.DEFAULT');
+  }
+}
+
+@layer components {
+  /* Section vertical rhythm */
+  .section {
+    @apply py-20 sm:py-28 lg:py-36;
+  }
+
+  /* Small uppercase label above headlines */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-amber;
+  }
+
+  /* Warm amber -> gold gradient text */
+  .text-gradient-amber {
+    @apply bg-amber-gradient bg-clip-text text-transparent;
+  }
+
+  /* Ivory plaque that hosts the locked logo on dark surfaces */
+  .logo-plaque {
+    background: linear-gradient(150deg, #ffffff 0%, #f8f5f0 60%, #efe9e0 100%);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.5) inset,
+      0 18px 40px -22px rgba(0, 0, 0, 0.9);
+  }
+
+  /* Frosted dark card surface */
+  .glass {
+    @apply bg-charcoal-soft/70 backdrop-blur-xl border border-ivory/10;
+  }
+
+  .card-surface {
+    @apply relative rounded-3xl border border-ivory/[0.08] bg-charcoal-soft/60 shadow-card;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-ivory/[0.12] to-transparent;
+  }
+
+  /* Grain texture overlay */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: theme('backgroundImage.noise');
+    background-size: 180px 180px;
+    opacity: 0.035;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    border-radius: inherit;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent);
+    mask-image: linear-gradient(to bottom, black 60%, transparent);
+  }
+}
+
+/* Honour users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
