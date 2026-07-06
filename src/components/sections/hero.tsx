@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Copy, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Sparkles } from 'lucide-react';
 import { HoverMedia } from '@/components/primitives/hover-media';
+import { useVideoModal } from '@/components/video/video-modal';
+import { videos, type Video } from '@/lib/data/videos';
 import { site } from '@/lib/data/site';
 import { cn } from '@/lib/utils';
 
@@ -18,23 +20,95 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease } },
 };
 
-type Card = {
+const byId = (id: string) => videos.find((v) => v.id === id) as Video;
+
+type HeroCard = {
   label: string;
-  seed: string;
-  kind: 'image' | 'video';
-  aspect: 'square' | 'portrait' | 'video';
   className: string;
   float: string;
-};
+} & (
+  | { type: 'video'; video: Video; aspect: 'video' }
+  | { type: 'image'; poster: string; href: string; aspect: 'portrait' | 'square' }
+);
 
-const cards: Card[] = [
-  { label: 'AI Film', seed: 'hero-film', kind: 'video', aspect: 'video', className: 'left-0 top-4 w-[58%]', float: 'animate-float-slow' },
-  { label: 'Studio Portrait', seed: 'hero-portrait', kind: 'image', aspect: 'portrait', className: 'right-0 top-0 w-[38%]', float: 'animate-float-slower' },
-  { label: 'AI Character', seed: 'hero-character', kind: 'image', aspect: 'square', className: 'left-[6%] bottom-2 w-[40%]', float: 'animate-float-slower' },
-  { label: 'Storytelling', seed: 'hero-story', kind: 'video', aspect: 'video', className: 'right-1 bottom-6 w-[52%]', float: 'animate-float-slow' },
+const cards: HeroCard[] = [
+  {
+    label: 'AI Film',
+    type: 'video',
+    video: byId('1199161422'), // Move 32, Checkmate
+    aspect: 'video',
+    className: 'left-0 top-4 w-[58%]',
+    float: 'animate-float-slow',
+  },
+  {
+    label: 'Studio Portrait',
+    type: 'image',
+    poster: '/prompts/cinematic-golden-hour-portrait.webp',
+    href: '/prompt-library/cinematic-golden-hour-portrait',
+    aspect: 'portrait',
+    className: 'right-0 top-0 w-[38%]',
+    float: 'animate-float-slower',
+  },
+  {
+    label: 'AI Character',
+    type: 'image',
+    poster: '/prompts/fantasy-desert-oracle.webp',
+    href: '/prompt-library/fantasy-desert-oracle',
+    aspect: 'square',
+    className: 'left-[6%] bottom-2 w-[40%]',
+    float: 'animate-float-slower',
+  },
+  {
+    label: 'Storytelling',
+    type: 'video',
+    video: byId('1200921503'), // Between Us, a Series
+    aspect: 'video',
+    className: 'right-1 bottom-6 w-[52%]',
+    float: 'animate-float-slow',
+  },
 ];
 
 export function Hero() {
+  const { openVideo } = useVideoModal();
+
+  const renderMedia = (
+    card: HeroCard,
+    aspect: 'video' | 'portrait' | 'square',
+    rounded: string,
+    sizes: string
+  ) => {
+    const media = (
+      <HoverMedia
+        seed={card.label}
+        label={card.label}
+        title={card.type === 'video' ? card.video.title : card.label}
+        poster={card.type === 'video' ? card.video.thumbnail : card.poster}
+        kind={card.type === 'video' ? 'video' : 'image'}
+        aspect={aspect}
+        rounded={rounded}
+        sizes={sizes}
+      />
+    );
+
+    if (card.type === 'video') {
+      return (
+        <button
+          type="button"
+          onClick={() => openVideo(card.video)}
+          aria-label={`Play ${card.video.title}`}
+          className="block w-full rounded-2xl"
+        >
+          {media}
+        </button>
+      );
+    }
+    return (
+      <Link href={card.href} aria-label={card.label} className="block w-full rounded-2xl">
+        {media}
+      </Link>
+    );
+  };
+
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-16 lg:pt-24">
       {/* Ambient background */}
@@ -112,33 +186,30 @@ export function Hero() {
             {/* decorative ring */}
             <div className="absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-ivory/[0.06] animate-pulse-ring" />
 
-            {cards.map((c) => (
+            {cards.map((c, i) => (
               <div
                 key={c.label}
-                className={cn('absolute', c.className, c.float)}
-                style={{ animationDelay: `${(c.seed.length % 5) * 0.4}s` }}
+                className={cn('absolute transition-transform duration-500 hover:z-20 hover:scale-[1.03]', c.className, c.float)}
+                style={{ animationDelay: `${i * 0.5}s` }}
               >
                 <div className="card-surface grain overflow-hidden p-2 shadow-lift">
-                  <HoverMedia
-                    seed={c.seed}
-                    label={c.label}
-                    kind={c.kind}
-                    aspect={c.aspect}
-                    rounded="rounded-2xl"
-                    sizes="300px"
-                  />
+                  {renderMedia(c, c.aspect, 'rounded-2xl', '300px')}
                 </div>
               </div>
             ))}
 
-            {/* Floating prompt UI card (QClay-style peeking card) */}
-            <div className="absolute left-[24%] top-[38%] w-[46%] animate-float-slow" style={{ animationDelay: '1.2s' }}>
-              <div className="glass grain rounded-2xl p-4 shadow-lift">
+            {/* Floating prompt UI card (QClay-style peeking card) → links to the real prompt */}
+            <Link
+              href="/prompt-library/cinematic-golden-hour-portrait"
+              className="group absolute left-[24%] top-[38%] w-[46%] animate-float-slow"
+              style={{ animationDelay: '1.2s' }}
+            >
+              <div className="glass grain rounded-2xl p-4 shadow-lift transition-colors group-hover:border-amber/30">
                 <div className="flex items-center justify-between">
                   <span className="text-[0.62rem] font-semibold uppercase tracking-widest text-amber">
                     Prompt
                   </span>
-                  <Copy className="h-3.5 w-3.5 text-stone" />
+                  <ArrowUpRight className="h-3.5 w-3.5 text-stone transition-colors group-hover:text-amber" />
                 </div>
                 <p className="mt-2 font-serif text-sm leading-snug text-ivory/90">
                   &ldquo;Cinematic golden-hour portrait, 85mm, warm amber grade…&rdquo;
@@ -149,7 +220,7 @@ export function Hero() {
                   <span className="h-1.5 w-8 rounded-full bg-ivory/15" />
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </motion.div>
 
@@ -157,14 +228,7 @@ export function Hero() {
         <div className="grid grid-cols-2 gap-3 lg:hidden">
           {cards.map((c) => (
             <div key={c.label} className="card-surface grain overflow-hidden p-1.5">
-              <HoverMedia
-                seed={c.seed}
-                label={c.label}
-                kind={c.kind}
-                aspect="square"
-                rounded="rounded-xl"
-                sizes="45vw"
-              />
+              {renderMedia(c, 'square', 'rounded-xl', '45vw')}
             </div>
           ))}
         </div>

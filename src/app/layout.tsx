@@ -4,6 +4,7 @@ import './globals.css';
 import { site } from '@/lib/data/site';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
+import { VideoModalProvider } from '@/components/video/video-modal';
 import { cn } from '@/lib/utils';
 
 const playfair = Playfair_Display({
@@ -76,9 +77,11 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Navbar />
-        <main id="main">{children}</main>
-        <Footer />
+        <VideoModalProvider>
+          <Navbar />
+          <main id="main">{children}</main>
+          <Footer />
+        </VideoModalProvider>
       </body>
     </html>
   );
