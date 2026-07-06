@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react';
 import { Container } from '@/components/primitives/container';
 import { SectionHeading } from '@/components/primitives/section-heading';
 import { Reveal, RevealGroup, RevealItem } from '@/components/primitives/reveal';
@@ -26,18 +27,53 @@ export function CreativeStack() {
               <RevealGroup className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {group.tools.map((tool) => (
                   <RevealItem key={tool.name}>
-                    <div className="card-surface group h-full p-6 transition-all duration-500 ease-out-expo hover:-translate-y-1 hover:border-amber/25">
-                      <div className="flex items-center justify-between">
+                    <div className="card-surface group flex h-full flex-col p-6 transition-all duration-500 ease-out-expo hover:-translate-y-1 hover:border-amber/25">
+                      <div className="flex items-start justify-between gap-3">
                         <h4 className="flex items-center gap-2.5 font-serif text-lg font-semibold text-ivory">
                           <span className="h-2 w-2 rounded-full bg-amber-gradient" />
                           {tool.name}
                         </h4>
+                        {tool.model && (
+                          <span className="shrink-0 rounded-full border border-ivory/12 bg-ivory/[0.04] px-2.5 py-1 text-[0.68rem] font-medium text-stone-light">
+                            {tool.model}
+                          </span>
+                        )}
                       </div>
+
                       <p className="mt-3 text-sm leading-relaxed text-stone-light">
                         {tool.description}
                       </p>
-                      <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/[0.07] px-3 py-1.5 text-xs font-medium text-gold-soft">
-                        Best for: {tool.bestFor}
+
+                      {tool.useFor && (
+                        <ul className="mt-4 space-y-2">
+                          {tool.useFor.map((use) => (
+                            <li
+                              key={use}
+                              className="flex items-center gap-2.5 text-sm text-stone-light"
+                            >
+                              <span className="h-1 w-1 shrink-0 rounded-full bg-amber" />
+                              {use}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      <div className="mt-auto flex items-center justify-between gap-3 pt-6">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/[0.07] px-3 py-1.5 text-xs font-medium text-gold-soft">
+                          Best for: {tool.bestFor}
+                        </span>
+                        {tool.href && (
+                          <a
+                            href={tool.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Visit ${tool.name}`}
+                            className="inline-flex items-center gap-1 text-xs font-medium text-stone-light transition-colors hover:text-amber"
+                          >
+                            Visit
+                            <ArrowUpRight className="h-3.5 w-3.5" />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </RevealItem>
