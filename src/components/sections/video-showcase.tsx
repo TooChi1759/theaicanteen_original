@@ -78,7 +78,7 @@ export function VideoShowcase({ videos }: { videos: Video[] }) {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: '-60px' }}
-      variants={{ show: { transition: { staggerChildren: 0.08 } } }}
+      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
       className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
     >
       {videos.map((video) => (

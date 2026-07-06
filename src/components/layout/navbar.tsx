@@ -45,7 +45,7 @@ export function Navbar() {
         <nav className="container flex h-[4.5rem] items-center justify-between gap-4">
           <Logo variant="mark" />
 
-          <ul className="hidden items-center gap-1 lg:flex">
+          <ul className="hidden items-center gap-0.5 xl:flex">
             {navItems.map((item) => {
               const activePath =
                 pathname === item.href ||
@@ -55,7 +55,7 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      'relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300',
+                      'relative whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-medium transition-colors duration-300',
                       activePath ? 'text-ivory' : 'text-stone-light hover:text-ivory'
                     )}
                   >
@@ -89,7 +89,7 @@ export function Navbar() {
               aria-label={open ? 'Close menu' : 'Open menu'}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ivory/15 text-ivory transition-colors hover:bg-ivory/[0.06] lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ivory/15 text-ivory transition-colors hover:bg-ivory/[0.06] xl:hidden"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -104,7 +104,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 top-[4.5rem] z-40 bg-charcoal/95 backdrop-blur-2xl lg:hidden"
+            className="fixed inset-0 top-[4.5rem] z-40 bg-charcoal/95 backdrop-blur-2xl xl:hidden"
           >
             <motion.ul
               className="container flex flex-col gap-1 pt-8"

@@ -32,6 +32,7 @@ export const navItems: NavItem[] = [
   { label: 'Prompt Library', href: '/prompt-library' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Tips & Resources', href: '/tips-resources' },
+  { label: 'TikTok', href: '/tiktok' },
   { label: 'About', href: '/about' },
   { label: 'Work With Us', href: '/work-with-us' },
 ];
@@ -43,6 +44,7 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
       { label: 'Featured Work', href: '/featured-work' },
       { label: 'Prompt Library', href: '/prompt-library' },
       { label: 'Gallery', href: '/gallery' },
+      { label: 'TikTok Showcase', href: '/tiktok' },
       { label: 'Tips & Resources', href: '/tips-resources' },
     ],
   },

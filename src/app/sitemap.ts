@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/prompt-library',
     '/gallery',
     '/tips-resources',
+    '/tiktok',
     '/about',
     '/work-with-us',
   ].map((path) => ({

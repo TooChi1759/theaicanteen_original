@@ -1,6 +1,7 @@
 import { Hero } from '@/components/sections/hero';
 import { FeaturedMonth } from '@/components/sections/featured-month';
 import { FeaturedVideos } from '@/components/sections/featured-videos';
+import { FeaturedTikToks } from '@/components/sections/featured-tiktoks';
 import { PromptLibraryPreview } from '@/components/sections/prompt-library-preview';
 import { GalleryPreview } from '@/components/sections/gallery-preview';
 import { TipsPreview } from '@/components/sections/tips-preview';
@@ -24,6 +25,7 @@ export default function HomePage() {
       <FeaturedMonth />
       <Divider />
       <FeaturedVideos limit={6} action={{ label: 'View all work', href: '/featured-work' }} />
+      <FeaturedTikToks action={{ label: 'See all on TikTok', href: '/tiktok' }} />
       <Divider />
       <PromptLibraryPreview />
       <GalleryPreview />
