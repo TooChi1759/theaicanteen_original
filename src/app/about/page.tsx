@@ -57,6 +57,7 @@ export default function AboutPage() {
                     seed="chioma-portrait"
                     title={site.ceo}
                     kind="image"
+                    poster="/brand/chioma-portrait.webp"
                     aspect="portrait"
                     rounded="rounded-[1.25rem]"
                     priority
