@@ -3,6 +3,7 @@ import { Container } from '@/components/primitives/container';
 import { SectionHeading } from '@/components/primitives/section-heading';
 import { Reveal, RevealGroup, RevealItem } from '@/components/primitives/reveal';
 import { stack } from '@/lib/data/stack';
+import { cn } from '@/lib/utils';
 
 export function CreativeStack() {
   return (
@@ -24,7 +25,12 @@ export function CreativeStack() {
                 <p className="max-w-md text-sm text-stone-light sm:text-right">{group.blurb}</p>
               </Reveal>
 
-              <RevealGroup className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <RevealGroup
+                className={cn(
+                  'mt-6 grid gap-5 sm:grid-cols-2',
+                  group.columns === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'
+                )}
+              >
                 {group.tools.map((tool) => (
                   <RevealItem key={tool.name}>
                     <div className="card-surface group flex h-full flex-col p-6 transition-all duration-500 ease-out-expo hover:-translate-y-1 hover:border-amber/25">
