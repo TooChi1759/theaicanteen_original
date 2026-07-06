@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/primitives/page-header';
-import { FeaturedFilms } from '@/components/sections/featured-films';
-import { Storytelling } from '@/components/sections/storytelling';
+import { Container } from '@/components/primitives/container';
+import { VideoShowcase } from '@/components/sections/video-showcase';
 import { NewsletterCta } from '@/components/sections/newsletter-cta';
+import { videos } from '@/lib/data/videos';
 
 export const metadata: Metadata = {
   title: 'Featured Work',
   description:
-    'Featured AI films and serial storytelling — commercials, fashion, travel, short films, and the Anita stories.',
+    'Selected AI work — spec ads, brand films, and story pieces, all built with the same AI production pipeline taught across The AI Canteen.',
 };
 
 export default function FeaturedWorkPage() {
@@ -22,10 +23,13 @@ export default function FeaturedWorkPage() {
             made with AI.
           </>
         }
-        description="A gallery of films and stories — every frame directed, generated, and graded in-house. Hover any card for a preview."
+        description="Spec ads, brand films, and story pieces — every frame directed, generated, and graded in-house. Tap any frame to watch."
       />
-      <FeaturedFilms showHeading />
-      <Storytelling />
+      <section className="pb-8">
+        <Container>
+          <VideoShowcase videos={videos} />
+        </Container>
+      </section>
       <NewsletterCta />
     </>
   );

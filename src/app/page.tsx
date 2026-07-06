@@ -1,7 +1,6 @@
 import { Hero } from '@/components/sections/hero';
 import { FeaturedMonth } from '@/components/sections/featured-month';
-import { FeaturedFilms } from '@/components/sections/featured-films';
-import { Storytelling } from '@/components/sections/storytelling';
+import { FeaturedVideos } from '@/components/sections/featured-videos';
 import { PromptLibraryPreview } from '@/components/sections/prompt-library-preview';
 import { GalleryPreview } from '@/components/sections/gallery-preview';
 import { TipsPreview } from '@/components/sections/tips-preview';
@@ -24,8 +23,7 @@ export default function HomePage() {
       <Hero />
       <FeaturedMonth />
       <Divider />
-      <FeaturedFilms limit={8} action={{ label: 'View all work', href: '/featured-work' }} />
-      <Storytelling />
+      <FeaturedVideos limit={6} action={{ label: 'View all work', href: '/featured-work' }} />
       <Divider />
       <PromptLibraryPreview />
       <GalleryPreview />
