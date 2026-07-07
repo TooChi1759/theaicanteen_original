@@ -34,7 +34,7 @@ export function ContactForm({ className }: { className?: string }) {
       message,
     ].join('\n');
 
-    window.location.href = `mailto:${site.email.partnerships}?subject=${encodeURIComponent(
+    window.location.href = `mailto:${site.email.general}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
     setStatus('sent');
