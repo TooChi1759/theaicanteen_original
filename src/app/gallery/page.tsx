@@ -34,7 +34,8 @@ export default function GalleryPage() {
               <RevealItem key={c.id}>
                 <CollectionTile
                   collection={c}
-                  href="/prompt-library"
+                  href={c.promptSlug ? `/prompt-library/${c.promptSlug}` : '/prompt-library'}
+                  poster={c.promptSlug ? `/prompts/${c.promptSlug}.webp` : undefined}
                   aspect="square"
                   priority={i < 4}
                 />
