@@ -8,17 +8,17 @@ export type GalleryCollection = {
 };
 
 export const characterCategories: GalleryCollection[] = [
-  { id: 'realistic', name: 'Realistic', description: 'Photoreal humans indistinguishable from a camera capture.' },
-  { id: 'pixar', name: 'Pixar Inspired', description: 'Warm, rounded 3D characters with cinematic charm.' },
-  { id: 'stylized', name: 'Stylized', description: 'Illustrative, graphic personas with bold identity.' },
+  { id: 'realistic', name: 'Realistic', description: 'Photoreal humans indistinguishable from a camera capture.', promptSlug: 'realistic-portrait-study' },
+  { id: 'pixar', name: 'Pixar Inspired', description: 'Warm, rounded 3D characters with cinematic charm.', promptSlug: 'pixar-style-character' },
+  { id: 'stylized', name: 'Stylized', description: 'Illustrative, graphic personas with bold identity.', promptSlug: 'bold-graphic-character' },
   { id: 'fantasy', name: 'Fantasy', description: 'Oracles, warriors, and worlds that never were.', promptSlug: 'fantasy-desert-oracle' },
   { id: 'business', name: 'Business', description: 'Consistent corporate personas for brand campaigns.', promptSlug: 'business-character-executive' },
-  { id: 'luxury', name: 'Luxury', description: 'High-fashion, high-net-worth editorial figures.' },
-  { id: 'medical', name: 'Medical', description: 'Trusted clinical characters for health storytelling.' },
-  { id: 'african', name: 'African', description: 'Rich, authentic representation across the diaspora.' },
-  { id: 'fashion', name: 'Fashion', description: 'Runway-ready models with couture presence.' },
-  { id: 'children', name: 'Children', description: 'Expressive young characters, wholesome and safe.' },
-  { id: 'editorial', name: 'Editorial', description: 'Magazine-cover faces with directorial mood.' },
+  { id: 'luxury', name: 'Luxury', description: 'High-fashion, high-net-worth editorial figures.', promptSlug: 'luxury-editorial-persona' },
+  { id: 'medical', name: 'Medical', description: 'Trusted clinical characters for health storytelling.', promptSlug: 'trusted-clinical-portrait' },
+  { id: 'african', name: 'African', description: 'Rich, authentic representation across the diaspora.', promptSlug: 'african-diaspora-portrait' },
+  { id: 'fashion', name: 'Fashion', description: 'Runway-ready models with couture presence.', promptSlug: 'runway-presence' },
+  { id: 'children', name: 'Children', description: 'Expressive young characters, wholesome and safe.', promptSlug: 'wholesome-young-character' },
+  { id: 'editorial', name: 'Editorial', description: 'Magazine-cover faces with directorial mood.', promptSlug: 'magazine-cover-presence' },
 ];
 
 export const photographyCollections: GalleryCollection[] = [
