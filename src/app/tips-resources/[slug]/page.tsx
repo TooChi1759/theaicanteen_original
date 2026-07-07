@@ -6,7 +6,6 @@ import { Container } from '@/components/primitives/container';
 import { ArticleBody } from '@/components/primitives/article-body';
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/primitives/reveal';
-import { NewsletterCta } from '@/components/sections/newsletter-cta';
 import {
   getLearnItem,
   allLearnSlugs,
@@ -122,8 +121,6 @@ export default async function LearnArticlePage({
           </div>
         </Container>
       </section>
-
-      <NewsletterCta />
     </>
   );
 }

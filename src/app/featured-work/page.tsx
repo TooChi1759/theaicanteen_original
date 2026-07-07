@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { PageHeader } from '@/components/primitives/page-header';
 import { Container } from '@/components/primitives/container';
 import { VideoShowcase } from '@/components/sections/video-showcase';
-import { NewsletterCta } from '@/components/sections/newsletter-cta';
 import { videos } from '@/lib/data/videos';
 
 export const metadata: Metadata = {
@@ -30,7 +29,6 @@ export default function FeaturedWorkPage() {
           <VideoShowcase videos={videos} />
         </Container>
       </section>
-      <NewsletterCta />
     </>
   );
 }

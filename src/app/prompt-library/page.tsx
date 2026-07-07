@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { PageHeader } from '@/components/primitives/page-header';
 import { Container } from '@/components/primitives/container';
 import { PromptGrid } from '@/components/sections/prompt-grid';
-import { NewsletterCta } from '@/components/sections/newsletter-cta';
 
 export const metadata: Metadata = {
   title: 'Prompt Library',
@@ -16,14 +15,13 @@ export default function PromptLibraryPage() {
       <PageHeader
         eyebrow="Prompt Library"
         title="Every look, fully documented."
-        description="Browse by category, copy the exact prompt, and see the models behind each result. New recipes added regularly."
+        description="Every image here is AI-generated — hands-on demonstrations of prompt engineering, not client deliverables. Browse by category, copy the exact prompt, and see the models behind each result."
       />
       <section className="pb-24">
         <Container>
           <PromptGrid />
         </Container>
       </section>
-      <NewsletterCta />
     </>
   );
 }

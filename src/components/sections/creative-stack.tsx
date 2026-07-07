@@ -14,7 +14,7 @@ export function CreativeStack() {
           align="center"
           eyebrow="Creative Stack"
           title="The tools behind the work"
-          description="A working toolkit refined over hundreds of projects — with the exact job each tool does best."
+          description="A working toolkit refined across 20+ personal projects — with the exact job each tool does best."
         />
 
         <div className="mt-16 space-y-14">

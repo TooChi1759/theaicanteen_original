@@ -4,7 +4,6 @@ import { Container } from '@/components/primitives/container';
 import { SectionHeading } from '@/components/primitives/section-heading';
 import { CollectionTile } from '@/components/cards/collection-tile';
 import { RevealGroup, RevealItem } from '@/components/primitives/reveal';
-import { NewsletterCta } from '@/components/sections/newsletter-cta';
 import { characterCategories, photographyCollections } from '@/lib/data/gallery';
 
 export const metadata: Metadata = {
@@ -67,8 +66,6 @@ export default function GalleryPage() {
           </RevealGroup>
         </Container>
       </section>
-
-      <NewsletterCta />
     </>
   );
 }

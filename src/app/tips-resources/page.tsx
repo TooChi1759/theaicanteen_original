@@ -5,7 +5,6 @@ import { SectionHeading } from '@/components/primitives/section-heading';
 import { RevealGroup, RevealItem } from '@/components/primitives/reveal';
 import { TipCard } from '@/components/cards/tip-card';
 import { ResourceCard } from '@/components/cards/resource-card';
-import { NewsletterCta } from '@/components/sections/newsletter-cta';
 import { tips, resources } from '@/lib/data/learn';
 
 export const metadata: Metadata = {
@@ -58,8 +57,6 @@ export default function TipsResourcesPage() {
           </RevealGroup>
         </Container>
       </section>
-
-      <NewsletterCta />
     </>
   );
 }

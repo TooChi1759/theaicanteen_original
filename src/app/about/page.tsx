@@ -6,7 +6,6 @@ import { Container } from '@/components/primitives/container';
 import { HoverMedia } from '@/components/primitives/hover-media';
 import { Reveal, RevealGroup, RevealItem } from '@/components/primitives/reveal';
 import { CreativeStack } from '@/components/sections/creative-stack';
-import { NewsletterCta } from '@/components/sections/newsletter-cta';
 import { site } from '@/lib/data/site';
 
 export const metadata: Metadata = {
@@ -31,10 +30,10 @@ const philosophy = [
 ];
 
 const stats = [
-  { value: '500+', label: 'Prompts refined' },
-  { value: '120+', label: 'Films directed' },
+  { value: '20+', label: 'Personal projects shipped' },
+  { value: '0→13K', label: 'TikTok followers in 3 months' },
+  { value: '13', label: 'Tools in the creative stack' },
   { value: '9', label: 'Photography disciplines' },
-  { value: '∞', label: 'Ideas on the menu' },
 ];
 
 export default function AboutPage() {
@@ -146,7 +145,6 @@ export default function AboutPage() {
       </section>
 
       <CreativeStack />
-      <NewsletterCta />
     </>
   );
 }

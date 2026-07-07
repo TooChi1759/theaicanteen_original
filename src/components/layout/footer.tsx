@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Mail, Linkedin, ArrowUpRight } from 'lucide-react';
 import { Logo } from '@/components/primitives/logo';
-import { NewsletterForm } from '@/components/primitives/newsletter-form';
 import { TikTokIcon } from '@/components/primitives/icons';
 import { footerNav, site } from '@/lib/data/site';
 
@@ -15,14 +14,23 @@ export function Footer() {
 
       <div className="container relative py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
-          {/* Brand + newsletter */}
+          {/* Brand */}
           <div>
             <Logo variant="full" href="/" />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-stone-light">
-              Get practical AI inspiration, standout prompts, and creative ideas delivered
-              straight to your inbox.
+              A premium creative platform for AI-powered storytelling, photography, and prompt
+              engineering.
             </p>
-            <NewsletterForm variant="stacked" className="mt-6 max-w-md" />
+            <a
+              href={site.socials.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-6 inline-flex items-center gap-2 rounded-full border border-ivory/12 bg-ivory/[0.02] px-4 py-2.5 text-sm text-stone-light transition-colors hover:border-amber/40 hover:text-ivory"
+            >
+              <TikTokIcon className="h-4 w-4 text-amber" />
+              13K+ followers in 3 months — follow the journey
+              <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
+            </a>
           </div>
 
           {/* Quick links */}

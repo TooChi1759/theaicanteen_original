@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CalendarClock, Mail, Linkedin, ArrowUpRight } from 'lucide-react';
+import { CalendarClock, Mail, Linkedin } from 'lucide-react';
 import { PageHeader } from '@/components/primitives/page-header';
 import { Container } from '@/components/primitives/container';
 import { SectionHeading } from '@/components/primitives/section-heading';
 import { Reveal, RevealGroup, RevealItem } from '@/components/primitives/reveal';
 import { TikTokIcon } from '@/components/primitives/icons';
+import { ContactForm } from '@/components/primitives/contact-form';
 import { services } from '@/lib/data/services';
 import { site } from '@/lib/data/site';
 
@@ -106,7 +107,7 @@ export default function WorkWithUsPage() {
           <Reveal>
             <div className="relative overflow-hidden rounded-[2rem] border border-ivory/[0.08] bg-gradient-to-br from-charcoal-soft to-charcoal-deep p-8 sm:p-12 lg:p-16">
               <div className="pointer-events-none absolute left-[-10%] bottom-[-40%] h-72 w-72 rounded-full bg-gold-glow blur-2xl" />
-              <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
+              <div className="relative grid gap-10 lg:grid-cols-2 lg:items-start">
                 <div>
                   <h2 className="font-serif text-headline font-semibold text-ivory">
                     Let&rsquo;s talk.
@@ -115,7 +116,25 @@ export default function WorkWithUsPage() {
                     Reach out for collaborations, partnerships, speaking, or workshops. We reply to
                     every serious inquiry.
                   </p>
-                  <div className="mt-8 flex items-center gap-3">
+                  <div className="mt-8 space-y-3">
+                    <a
+                      href={`mailto:${site.email.partnerships}`}
+                      className="flex items-center gap-2 text-sm text-stone-light transition-colors hover:text-ivory"
+                    >
+                      <Mail className="h-4 w-4 text-amber" />
+                      {site.email.partnerships}
+                    </a>
+                    <Link
+                      href={site.bookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-stone-light transition-colors hover:text-ivory"
+                    >
+                      <CalendarClock className="h-4 w-4 text-amber" />
+                      Book a Discovery Call
+                    </Link>
+                  </div>
+                  <div className="mt-6 flex items-center gap-3">
                     <a
                       href={site.socials.tiktok}
                       target="_blank"
@@ -137,45 +156,14 @@ export default function WorkWithUsPage() {
                   </div>
                 </div>
 
-                <div className="space-y-3">
-                  <a
-                    href={`mailto:${site.email.general}`}
-                    className="group flex items-center justify-between rounded-2xl border border-ivory/[0.08] bg-ivory/[0.02] p-5 transition-colors hover:border-amber/30"
-                  >
-                    <span>
-                      <span className="block text-xs uppercase tracking-wider text-stone">
-                        General
-                      </span>
-                      <span className="mt-1 block text-ivory">{site.email.general}</span>
-                    </span>
-                    <ArrowUpRight className="h-5 w-5 text-stone transition-colors group-hover:text-amber" />
-                  </a>
-                  <a
-                    href={`mailto:${site.email.partnerships}`}
-                    className="group flex items-center justify-between rounded-2xl border border-ivory/[0.08] bg-ivory/[0.02] p-5 transition-colors hover:border-amber/30"
-                  >
-                    <span>
-                      <span className="block text-xs uppercase tracking-wider text-stone">
-                        Partnerships
-                      </span>
-                      <span className="mt-1 block text-ivory">{site.email.partnerships}</span>
-                    </span>
-                    <ArrowUpRight className="h-5 w-5 text-stone transition-colors group-hover:text-amber" />
-                  </a>
-                  <Link
-                    href={site.bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center justify-between rounded-2xl bg-amber-gradient p-5 text-ivory transition-all hover:-translate-y-0.5 hover:shadow-glow"
-                  >
-                    <span>
-                      <span className="block text-xs uppercase tracking-wider text-ivory/70">
-                        Book
-                      </span>
-                      <span className="mt-1 block font-semibold">A Discovery Call</span>
-                    </span>
-                    <CalendarClock className="h-5 w-5" />
-                  </Link>
+                <div className="card-surface grain p-6 sm:p-8">
+                  <h3 className="font-serif text-xl font-semibold text-ivory">
+                    Tell us about your project
+                  </h3>
+                  <p className="mt-1 text-sm text-stone-light">
+                    A few details help us reply with something useful.
+                  </p>
+                  <ContactForm className="mt-6" />
                 </div>
               </div>
             </div>

@@ -3,7 +3,6 @@ import { ExternalLink } from 'lucide-react';
 import { PageHeader } from '@/components/primitives/page-header';
 import { Container } from '@/components/primitives/container';
 import { TikTokShowcase } from '@/components/sections/tiktok-showcase';
-import { NewsletterCta } from '@/components/sections/newsletter-cta';
 import { TikTokIcon } from '@/components/primitives/icons';
 import { tiktoks } from '@/lib/data/tiktoks';
 import { site } from '@/lib/data/site';
@@ -39,8 +38,6 @@ export default function TikTokPage() {
           <TikTokShowcase items={tiktoks} />
         </Container>
       </section>
-
-      <NewsletterCta />
     </>
   );
 }

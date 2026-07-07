@@ -11,7 +11,7 @@ export function PromptLibraryPreview({ limit = 3 }: { limit?: number }) {
         <SectionHeading
           eyebrow="Prompt Library"
           title="Steal our recipes"
-          description="Every look comes with the exact prompt behind it. Copy, remix, and make it yours."
+          description="Every image below is AI-generated — a transparent teardown of the exact prompt, model, and settings behind it. Copy, remix, and make it yours."
           action={{ label: 'Browse all prompts', href: '/prompt-library' }}
         />
 
