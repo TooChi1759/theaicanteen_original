@@ -9,7 +9,7 @@ export const site = {
   heroHeadline: 'Feed Your Creativity.',
   description:
     'A premium creative platform showcasing AI-generated video, AI photography, prompt engineering, and creative resources for creators who refuse ordinary.',
-  url: 'https://theaicanteen.com',
+  url: 'https://www.theaicanteen.com',
   ceo: 'Chioma Onwumere',
   email: {
     general: 'hello@theaicanteen.com',
