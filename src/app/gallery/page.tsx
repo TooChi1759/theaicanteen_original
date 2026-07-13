@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: 'Gallery',
   description:
     'The AI Character Gallery and AI Photography collections — realistic, fashion, luxury, food, architecture, and more.',
+  alternates: { canonical: '/gallery' },
 };
 
 export default function GalleryPage() {

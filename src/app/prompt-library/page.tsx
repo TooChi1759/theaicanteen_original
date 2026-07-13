@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Prompt Library',
   description:
     'Copy-ready prompts behind our best AI images — with the exact models, negative prompts, and related recipes.',
+  alternates: { canonical: '/prompt-library' },
 };
 
 export default function PromptLibraryPage() {

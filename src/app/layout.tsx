@@ -5,6 +5,8 @@ import { site } from '@/lib/data/site';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { VideoModalProvider } from '@/components/video/video-modal';
+import { JsonLd } from '@/components/primitives/json-ld';
+import { organizationSchema } from '@/lib/structured-data';
 import { cn } from '@/lib/utils';
 
 const playfair = Playfair_Display({
@@ -59,6 +61,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export const viewport: Viewport = {
@@ -73,6 +78,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(playfair.variable, dmSans.variable, 'dark')}>
       <body className="min-h-dvh overflow-x-hidden">
+        <JsonLd data={organizationSchema()} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-amber focus:px-5 focus:py-2 focus:text-sm focus:font-semibold focus:text-ivory"

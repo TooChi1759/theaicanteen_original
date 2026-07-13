@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'Tips & Resources',
   description:
     'Educational tips on prompt writing, lighting, camera movement, and color grading — plus downloadable creative resources.',
+  alternates: { canonical: '/tips-resources' },
 };
 
 export default function TipsResourcesPage() {

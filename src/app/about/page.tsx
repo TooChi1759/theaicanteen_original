@@ -6,12 +6,15 @@ import { Container } from '@/components/primitives/container';
 import { HoverMedia } from '@/components/primitives/hover-media';
 import { Reveal, RevealGroup, RevealItem } from '@/components/primitives/reveal';
 import { CreativeStack } from '@/components/sections/creative-stack';
+import { JsonLd } from '@/components/primitives/json-ld';
+import { personSchema } from '@/lib/structured-data';
 import { site } from '@/lib/data/site';
 
 export const metadata: Metadata = {
   title: 'About',
   description:
     'The AI Canteen is a premium creative platform founded by Chioma Onwumere, exploring AI-powered storytelling and craft.',
+  alternates: { canonical: '/about' },
 };
 
 const philosophy = [
@@ -39,6 +42,7 @@ const stats = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={personSchema()} />
       <PageHeader
         eyebrow="About"
         title="A canteen for the creatively hungry."

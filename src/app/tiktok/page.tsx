@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'TikTok Showcase',
   description:
     'The @theaicanteen Anita series — serial AI animation, straight from TikTok. Watch every episode on-site.',
+  alternates: { canonical: '/tiktok' },
 };
 
 export default function TikTokPage() {

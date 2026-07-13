@@ -8,6 +8,8 @@ import { CopyButton } from '@/components/primitives/copy-button';
 import { PromptCard } from '@/components/cards/prompt-card';
 import { Badge } from '@/components/ui/badge';
 import { RevealGroup, RevealItem } from '@/components/primitives/reveal';
+import { JsonLd } from '@/components/primitives/json-ld';
+import { imageObjectSchema, breadcrumbSchema } from '@/lib/structured-data';
 import { prompts, getPrompt } from '@/lib/data/prompts';
 
 export function generateStaticParams() {
@@ -22,9 +24,19 @@ export async function generateMetadata({
   const { slug } = await params;
   const prompt = getPrompt(slug);
   if (!prompt) return { title: 'Prompt not found' };
+  const image = prompt.outputImage ?? `/prompts/${prompt.slug}.webp`;
   return {
     title: prompt.title,
     description: prompt.preview,
+    alternates: { canonical: `/prompt-library/${prompt.slug}` },
+    openGraph: {
+      title: prompt.title,
+      description: prompt.preview,
+      images: [{ url: image, width: 1200, height: 1500, alt: prompt.title }],
+    },
+    twitter: {
+      images: [image],
+    },
   };
 }
 
@@ -43,6 +55,14 @@ export default async function PromptDetailPage({
 
   return (
     <>
+      <JsonLd data={imageObjectSchema(prompt)} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Prompt Library', path: '/prompt-library' },
+          { name: prompt.title, path: `/prompt-library/${prompt.slug}` },
+        ])}
+      />
       <section className="pt-32 lg:pt-40">
         <Container>
           <Link

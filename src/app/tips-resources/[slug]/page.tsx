@@ -6,6 +6,8 @@ import { Container } from '@/components/primitives/container';
 import { ArticleBody } from '@/components/primitives/article-body';
 import { Badge } from '@/components/ui/badge';
 import { Reveal } from '@/components/primitives/reveal';
+import { JsonLd } from '@/components/primitives/json-ld';
+import { articleSchema, breadcrumbSchema } from '@/lib/structured-data';
 import {
   getLearnItem,
   allLearnSlugs,
@@ -27,7 +29,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const item = getLearnItem(slug);
   if (!item) return { title: 'Not found' };
-  return { title: item.title, description: item.description };
+  return {
+    title: item.title,
+    description: item.description,
+    alternates: { canonical: `/tips-resources/${item.slug}` },
+  };
 }
 
 export default async function LearnArticlePage({
@@ -48,6 +54,20 @@ export default async function LearnArticlePage({
 
   return (
     <>
+      <JsonLd
+        data={articleSchema({
+          title: item.title,
+          description: item.description,
+          path: `/tips-resources/${item.slug}`,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Tips & Resources', path: '/tips-resources' },
+          { name: item.title, path: `/tips-resources/${item.slug}` },
+        ])}
+      />
       <article>
         <header className="relative overflow-hidden pt-36 pb-10 lg:pt-44">
           <div className="pointer-events-none absolute left-1/2 top-0 h-[36vh] w-[70vw] -translate-x-1/2 rounded-full bg-ember-glow blur-2xl" />
@@ -65,9 +85,7 @@ export default async function LearnArticlePage({
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-amber/20 bg-amber/10 text-amber">
                   <Icon className="h-5 w-5" />
                 </span>
-                <Badge variant={item.kind === 'tip' ? 'amber' : 'gold'}>
-                  {item.kind === 'tip' ? 'Tip' : item.type}
-                </Badge>
+                <Badge variant="gold">{item.kind === 'tip' ? 'Tip' : item.type}</Badge>
                 <span className="inline-flex items-center gap-1.5 text-xs text-stone">
                   <Clock className="h-3.5 w-3.5" />
                   {meta}

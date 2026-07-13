@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: 'Work With Us',
   description:
     'Collaborate with The AI Canteen — AI commercial production, creative campaigns, photography, prompt engineering, consulting, speaking, and workshops.',
+  alternates: { canonical: '/work-with-us' },
 };
 
 const process = [
