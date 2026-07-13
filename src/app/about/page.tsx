@@ -124,7 +124,7 @@ export default function AboutPage() {
           <RevealGroup className="mt-16 grid grid-cols-2 gap-6 rounded-3xl border border-ivory/[0.08] bg-charcoal-soft/40 p-8 md:grid-cols-4">
             {stats.map((s) => (
               <RevealItem key={s.label} className="text-center">
-                <div className="font-serif text-4xl font-bold text-gradient-amber">{s.value}</div>
+                <div className="font-serif text-4xl font-bold text-gold">{s.value}</div>
                 <div className="mt-2 text-sm text-stone-light">{s.label}</div>
               </RevealItem>
             ))}

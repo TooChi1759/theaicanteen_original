@@ -23,7 +23,7 @@ export function PromptCard({ prompt, priority }: { prompt: Prompt; priority?: bo
       </Link>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center justify-between gap-2">
-          <Badge variant="amber">{prompt.category}</Badge>
+          <Badge variant="gold">{prompt.category}</Badge>
           <span className="text-[0.68rem] uppercase tracking-wider text-stone">
             {prompt.models[0]}
           </span>

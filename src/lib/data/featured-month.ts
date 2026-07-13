@@ -11,7 +11,6 @@ export type Spotlight = {
   meta: string;
   href: string;
   kind: 'video' | 'image';
-  accent: 'amber' | 'gold';
   /** Real Vimeo id — if set, the card opens the on-site lightbox instead of navigating. */
   videoId?: string;
   /** Real generated image, if this spotlight is a prompt/photo. */
@@ -27,7 +26,6 @@ export const featuredThisMonth: Spotlight[] = [
     meta: 'Series · 0:58',
     href: '/featured-work',
     kind: 'video',
-    accent: 'amber',
     videoId: '1200921503',
   },
   {
@@ -38,7 +36,6 @@ export const featuredThisMonth: Spotlight[] = [
     meta: 'Fantasy · Generated',
     href: '/prompt-library/fantasy-desert-oracle',
     kind: 'image',
-    accent: 'gold',
     poster: '/prompts/fantasy-desert-oracle.webp',
   },
   {
@@ -49,7 +46,6 @@ export const featuredThisMonth: Spotlight[] = [
     meta: 'Portrait · Lighting',
     href: '/prompt-library/cinematic-golden-hour-portrait',
     kind: 'image',
-    accent: 'amber',
     poster: '/prompts/cinematic-golden-hour-portrait.webp',
   },
   {
@@ -60,6 +56,5 @@ export const featuredThisMonth: Spotlight[] = [
     meta: 'Workflow · 5 min read',
     href: '/tips-resources/character-consistency',
     kind: 'image',
-    accent: 'gold',
   },
 ];

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, Sparkles } from 'lucide-react';
 import { HoverMedia } from '@/components/primitives/hover-media';
+import { HighlightSwipe } from '@/components/primitives/highlight-swipe';
 import { useVideoModal } from '@/components/video/video-modal';
 import { videos, type Video } from '@/lib/data/videos';
 import { site } from '@/lib/data/site';
@@ -139,7 +140,10 @@ export function Hero() {
             variants={item}
             className="mt-6 font-serif text-display-lg font-semibold text-ivory"
           >
-            Feed Your <span className="text-gradient-amber italic">Creativity.</span>
+            Feed Your{' '}
+            <HighlightSwipe color="amber">
+              <span className="italic">Creativity.</span>
+            </HighlightSwipe>
           </motion.h1>
 
           <motion.p

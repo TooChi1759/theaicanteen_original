@@ -38,11 +38,7 @@ export function FeaturedMonth() {
                   sizes="(max-width: 640px) 100vw, 25vw"
                 />
                 <div className="flex flex-1 flex-col p-4">
-                  <span
-                    className={`text-xs font-semibold uppercase tracking-[0.16em] ${
-                      s.accent === 'gold' ? 'text-gold' : 'text-amber'
-                    }`}
-                  >
+                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
                     {s.kicker}
                   </span>
                   <h3 className="mt-2 font-serif text-xl font-semibold text-ivory">{s.title}</h3>

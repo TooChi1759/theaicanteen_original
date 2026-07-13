@@ -11,7 +11,7 @@ export default function NotFound() {
           <span className="h-1.5 w-1.5 rounded-full bg-amber" />
           404
         </p>
-        <h1 className="mt-6 font-serif text-display-lg font-semibold text-gradient-amber">
+        <h1 className="mt-6 font-serif text-display-lg font-semibold text-gold">
           Off the menu.
         </h1>
         <p className="mx-auto mt-5 max-w-md text-lg text-stone-light">

@@ -71,7 +71,7 @@ export default async function PromptDetailPage({
 
             {/* Details */}
             <div>
-              <Badge variant="amber">{prompt.category}</Badge>
+              <Badge variant="gold">{prompt.category}</Badge>
               <h1 className="mt-4 font-serif text-display font-semibold text-ivory">
                 {prompt.title}
               </h1>
