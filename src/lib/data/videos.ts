@@ -13,6 +13,8 @@ export type Video = {
   width: number;
   height: number;
   thumbnail: string;
+  /** Upload date on Vimeo, from the oEmbed API (`upload_date`), YYYY-MM-DD. */
+  uploadDate: string;
 };
 
 export const videos: Video[] = [
@@ -26,6 +28,7 @@ export const videos: Video[] = [
     width: 1280,
     height: 729,
     thumbnail: '/videos/1200921503.webp',
+    uploadDate: '2026-06-12',
   },
   {
     id: '1199161422',
@@ -36,6 +39,7 @@ export const videos: Video[] = [
     width: 1280,
     height: 729,
     thumbnail: '/videos/1199161422.webp',
+    uploadDate: '2026-06-07',
   },
   {
     id: '1199161270',
@@ -46,6 +50,7 @@ export const videos: Video[] = [
     width: 1280,
     height: 720,
     thumbnail: '/videos/1199161270.webp',
+    uploadDate: '2026-06-07',
   },
   {
     id: '1200921700',
@@ -56,6 +61,7 @@ export const videos: Video[] = [
     width: 1280,
     height: 707,
     thumbnail: '/videos/1200921700.webp',
+    uploadDate: '2026-06-12',
   },
   {
     id: '1195468878',
@@ -66,6 +72,7 @@ export const videos: Video[] = [
     width: 1280,
     height: 1280,
     thumbnail: '/videos/1195468878.webp',
+    uploadDate: '2026-05-25',
   },
   {
     id: '1195473531',
@@ -76,6 +83,7 @@ export const videos: Video[] = [
     width: 1280,
     height: 1280,
     thumbnail: '/videos/1195473531.webp',
+    uploadDate: '2026-05-25',
   },
   {
     id: '1195827468',
@@ -86,6 +94,7 @@ export const videos: Video[] = [
     width: 720,
     height: 1280,
     thumbnail: '/videos/1195827468.webp',
+    uploadDate: '2026-05-26',
   },
   {
     id: '1200922019',
@@ -96,6 +105,7 @@ export const videos: Video[] = [
     width: 720,
     height: 1280,
     thumbnail: '/videos/1200922019.webp',
+    uploadDate: '2026-06-12',
   },
   {
     id: '1199160959',
@@ -106,5 +116,6 @@ export const videos: Video[] = [
     width: 1280,
     height: 704,
     thumbnail: '/videos/1199160959.webp',
+    uploadDate: '2026-06-07',
   },
 ];

@@ -10,6 +10,7 @@ import {
   Mic,
   GraduationCap,
   Handshake,
+  Target,
 } from 'lucide-react';
 
 export type Service = {
@@ -17,9 +18,12 @@ export type Service = {
   title: string;
   description: string;
   icon: LucideIcon;
+  /** If set, the whole card links out to more detail (e.g. a dedicated page). */
+  href?: string;
 };
 
 export const services: Service[] = [
+  { id: 'strategy', title: 'Performance Creative Strategy', description: 'Platform-specific testing, psychology, and metrics — decided before production starts.', icon: Target, href: '/method' },
   { id: 'commercial', title: 'AI Commercial Production', description: 'End-to-end generative commercials — concept, direction, and delivery.', icon: Clapperboard },
   { id: 'campaigns', title: 'Creative Campaigns', description: 'Multi-asset campaigns with a consistent, ownable visual world.', icon: Megaphone },
   { id: 'photography', title: 'AI Photography', description: 'Studio-grade imagery for products, people, and brands.', icon: Camera },

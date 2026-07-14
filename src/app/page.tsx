@@ -2,6 +2,7 @@ import { Hero } from '@/components/sections/hero';
 import { FeaturedMonth } from '@/components/sections/featured-month';
 import { HomeFeaturedWork } from '@/components/sections/home-featured-work';
 import { NaiveVsEngineered } from '@/components/sections/naive-vs-engineered';
+import { CreativeStrategyTeaser } from '@/components/sections/creative-strategy-teaser';
 import { PromptLibraryPreview } from '@/components/sections/prompt-library-preview';
 import { WorkWithUsCta } from '@/components/sections/work-with-us-cta';
 import { Container } from '@/components/primitives/container';
@@ -23,6 +24,8 @@ export default function HomePage() {
       <HomeFeaturedWork />
       <Divider />
       <NaiveVsEngineered />
+      <Divider />
+      <CreativeStrategyTeaser />
       <PromptLibraryPreview />
       <WorkWithUsCta />
     </>

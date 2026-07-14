@@ -29,6 +29,7 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { label: 'Featured Work', href: '/featured-work' },
+  { label: 'The Method', href: '/method' },
   { label: 'Prompt Library', href: '/prompt-library' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Tips & Resources', href: '/tips-resources' },
@@ -42,6 +43,7 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
     title: 'Explore',
     links: [
       { label: 'Featured Work', href: '/featured-work' },
+      { label: 'The Method', href: '/method' },
       { label: 'Prompt Library', href: '/prompt-library' },
       { label: 'Gallery', href: '/gallery' },
       { label: 'TikTok Showcase', href: '/tiktok' },

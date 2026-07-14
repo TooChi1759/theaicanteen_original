@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CalendarClock, Mail, Linkedin } from 'lucide-react';
+import { CalendarClock, Mail, Linkedin, ArrowUpRight } from 'lucide-react';
 import { PageHeader } from '@/components/primitives/page-header';
 import { Container } from '@/components/primitives/container';
 import { SectionHeading } from '@/components/primitives/section-heading';
@@ -63,15 +63,30 @@ export default function WorkWithUsPage() {
           <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => {
               const Icon = s.icon;
+              const card = (
+                <div className="card-surface grain group h-full p-6 transition-all duration-500 ease-out-expo hover:-translate-y-1 hover:border-amber/25 hover:shadow-lift">
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-amber/20 bg-amber/10 text-amber transition-colors group-hover:bg-amber/20">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-serif text-lg font-semibold text-ivory">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-stone-light">{s.description}</p>
+                  {s.href && (
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-amber">
+                      See the method
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
+                  )}
+                </div>
+              );
               return (
                 <RevealItem key={s.id}>
-                  <div className="card-surface grain group h-full p-6 transition-all duration-500 ease-out-expo hover:-translate-y-1 hover:border-amber/25 hover:shadow-lift">
-                    <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-amber/20 bg-amber/10 text-amber transition-colors group-hover:bg-amber/20">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="font-serif text-lg font-semibold text-ivory">{s.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-stone-light">{s.description}</p>
-                  </div>
+                  {s.href ? (
+                    <Link href={s.href} className="block h-full">
+                      {card}
+                    </Link>
+                  ) : (
+                    card
+                  )}
                 </RevealItem>
               );
             })}

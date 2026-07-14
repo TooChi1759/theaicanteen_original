@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     '',
     '/featured-work',
+    '/method',
     '/prompt-library',
     '/gallery',
     '/tips-resources',

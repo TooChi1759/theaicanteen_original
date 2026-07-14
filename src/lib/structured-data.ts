@@ -2,8 +2,9 @@
  * JSON-LD structured data builders (schema.org). Pure functions — render with
  * <JsonLd data={...} /> from '@/components/primitives/json-ld'.
  *
- * Deliberately omit fields we don't have real values for (e.g. publish dates)
+ * Deliberately omit fields we don't have real values for (e.g. Article publish dates)
  * rather than fabricate them — Google treats invented structured data as spam risk.
+ * Video uploadDate values are real, pulled from Vimeo's oEmbed API (`upload_date`).
  */
 import { site } from '@/lib/data/site';
 import type { Video } from '@/lib/data/videos';
@@ -59,6 +60,7 @@ export function videoObjectSchema(video: Video) {
     thumbnailUrl: [abs(video.thumbnail)],
     embedUrl: `https://player.vimeo.com/video/${video.id}`,
     duration: durationToISO8601(video.duration),
+    uploadDate: video.uploadDate,
     publisher: {
       '@type': 'Organization',
       name: site.name,
