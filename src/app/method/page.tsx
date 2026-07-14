@@ -46,7 +46,7 @@ export default function MethodPage() {
 
       <PageHeader
         eyebrow="The Method"
-        title="Every video is engineered before it's ever generated."
+        title="Every video is engineered before it’s ever generated."
         description="Most AI studios open a prompt box and start generating. We start with a question: what is this asset supposed to make someone do, and on which platform? The psychology, the channel, and the metric get decided first — production is the last step, not the first."
       >
         <div className="flex flex-wrap items-center gap-3">

@@ -10,7 +10,7 @@ export function CreativeStrategyTeaser() {
         <SectionHeading
           eyebrow="Before Any Camera Rolls"
           title="Every video is engineered for the platform it has to perform on."
-          description="We don't ship one cut everywhere. Meta rewards a different first second than TikTok; a product page needs different proof than a landing page. This is the reasoning behind the shot — not just the shot."
+          description="We don’t ship one cut everywhere. Meta rewards a different first second than TikTok; a product page needs different proof than a landing page. This is the reasoning behind the shot — not just the shot."
           action={{ label: 'See the full method', href: '/method' }}
         />
 
